@@ -3,8 +3,9 @@
   "version": "0.9.88",
   "description": "OmegaEdit gRPC Client",
   "publisher": "ctc-oss",
-  "main": "./main.js",
-  "types": "./index.d.ts",
+  "main": "./out/index.js",
+  "types": "./out/index.d.ts",
+  "files": ["out", "LICENSE.txt", "README.md"],
   "repository": {
     "url": "https://github.com/ctc-oss/omega-edit",
     "type": "git"
@@ -15,15 +16,16 @@
   "author": "CTC-OSS",
   "license": "Apache-2.0",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build": "yarn compile-src && yarn generate-version && tsc -p tsconfig.json",
+    "generate-version": "node ./scripts/generate-version.js",
     "compile-src": "run-script-os",
     "compile-src:default": "./compile-proto.sh",
     "compile-src:windows": "./compile-proto.bat",
     "docgen": "typedoc",
-    "prepackage": "yarn compile-src && yarn build && yarn --cwd out cache clean",
+    "prepackage": "yarn build",
     "package": "run-script-os",
-    "package:default": "yarn --cwd out pack --install-if-needed -f omega-edit-node-client-v${npm_package_version}.tgz",
-    "package:windows": "yarn --cwd out pack --install-if-needed -f omega-edit-node-client-v%npm_package_version%.tgz",
+    "package:default": "yarn pack --install-if-needed -f omega-edit-node-client-v${npm_package_version}.tgz",
+    "package:windows": "yarn pack --install-if-needed -f omega-edit-node-client-v%npm_package_version%.tgz",
     "install-client-local": "run-script-os",
     "install-client-local:default": "yarn add file://$INIT_CWD/omega-edit-node-client-v${npm_package_version}.tgz",
     "install-client-local:windows": "yarn add file:%INIT_CWD%/omega-edit-node-client-v%npm_package_version%.tgz",
@@ -32,14 +34,12 @@
     "test:lifecycle": "mocha --timeout 50000 --slow 35000 --require ts-node/register ./tests/specs/server.spec.ts --exit",
     "test": "(yarn test:lifecycle && yarn test:client) || (yarn posttest && exit 1)",
     "posttest": "yarn remove @omega-edit/client",
-    "lint": "prettier --check package.json webpack.config.js src tests && eslint .",
-    "lint:fix": "prettier --write package.json webpack.config.js src tests && eslint --fix ."
+    "lint": "prettier --check package.json src tests && eslint .",
+    "lint:fix": "prettier --write package.json src tests && eslint --fix ."
   },
   "devDependencies": {
-    "clean-webpack-plugin": "^4.0.0",
     "grpc-tools": "^1.12.4",
     "grpc_tools_node_protoc_ts": "^5.3.3",
-    "pino-webpack-plugin": "^2.0.0",
     "ts-node": "^10.9.2"
   },
   "dependencies": {

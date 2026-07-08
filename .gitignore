@@ -76,3 +76,4 @@ src/*.js
 packages/client/src/client_version.ts
 packages/client/tests/specs/data/.OmegaEdit-orig.*
 omega-edit-grpc-server.*
+packages/*/LICENSE.txt
