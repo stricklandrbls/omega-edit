@@ -15,7 +15,7 @@ If you find yourself adding any other recurring poll against session or viewport
 
 ## Prerequisites
 
-- Node.js 16+
+- Node.js 22 or newer; Node.js 24 is used by the primary CI lane and `.nvmrc`
 - Yarn (v1 or compatible)
 - The `@omega-edit/server` package must be built and packaged first
 
@@ -38,7 +38,7 @@ canonical schema at `proto/omega_edit/v1/omega_edit.proto`:
 yarn compile-src
 ```
 
-This runs `@protobuf-ts/plugin` (using the `protoc` binary from `grpc-tools`) and refreshes the ESM-friendly bindings under `src/protobuf_ts/generated/`.
+This runs `@protobuf-ts/plugin` using the pinned `@protobuf-ts/protoc` compiler and refreshes the ESM-friendly bindings under `src/protobuf_ts/generated/`.
 
 The generated code lives under `src/protobuf_ts/generated/omega_edit/v1/`.
 
