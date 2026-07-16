@@ -41,6 +41,36 @@ multiple viewports.
 | **Build a VS Code extension** | See [`vscode-extension/`](vscode-extension/) | 5 min |
 | **Use the C/C++ library** | [Pre-built binaries](https://github.com/ctc-oss/omega-edit/releases) or build from source (see below) | 5 min |
 
+### Data Editor keyboard shortcuts
+
+The VS Code Data Editor supports the following shortcuts. `Ctrl` means `Cmd`
+on macOS unless a macOS-specific shortcut is shown; grid shortcuts apply while
+the byte grid has focus.
+
+| Key | Action |
+| --- | --- |
+| `Ctrl+Z` / `Ctrl+Y` | Undo / redo (`Cmd+Z` / `Cmd+Shift+Z` on macOS) |
+| `Ctrl+S` / `Ctrl+Shift+S` | Save / save as |
+| `Ctrl+C` / `Ctrl+X` / `Ctrl+V` | Copy / cut the active-pane selection / insert clipboard bytes |
+| `Ctrl+F` / `Ctrl+H` | Focus the search / replacement field |
+| `F3` / `Shift+F3` | Next / previous search match |
+| `Ctrl+G` or `Ctrl+L` | Focus the go-to-offset field |
+| `Insert` | Toggle insert/overwrite mode |
+| `Tab` | Switch between the hex and text panes |
+| Hex digit / printable character | Edit the selected byte in the active pane |
+| `Backspace` / `Delete` | Delete before / at the selection or caret |
+| Arrow keys / `Shift`+Arrow keys | Move / extend the byte selection by one byte or row |
+| `Page Up` / `Page Down` | Move and scroll by one visible page; hold `Shift` to extend the selection |
+| `Home` / `End` | Jump to the beginning / end of the file |
+| `Enter` / `Shift+Enter` in Search | Next / previous match |
+| `Enter` in the replacement field | Replace the current match |
+| `Escape` in a Search field | Close Search |
+
+The focused checkpoint timeline and file scrollbar also accept Arrow keys,
+`Page Up`, `Page Down`, `Home`, and `End`. See the
+[extension README](vscode-extension/README.md#keyboard-shortcuts) for the full
+context-specific behavior.
+
 **TypeScript — first edit in 15 lines:**
 
 ```typescript

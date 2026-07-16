@@ -157,17 +157,47 @@ This mode decision is made only when the user runs an explicit search. If a repl
 
 ## Keyboard Shortcuts
 
-| Key                      | Action                                                     |
-| ------------------------ | ---------------------------------------------------------- |
-| `Ctrl+Z`                 | Native VS Code undo                                       |
-| `Ctrl+Y`                 | Native VS Code redo                                       |
-| `Ctrl+S`                 | Native VS Code save                                       |
-| `Ctrl+Shift+S`           | Native VS Code save as                                    |
-| `Ctrl+F`                 | Focus search                                               |
-| Arrow keys               | Move selection, or scroll by line when nothing is selected |
-| `Page Up` / `Page Down`  | Scroll by 32 rows                                          |
-| `Ctrl+Home` / `Ctrl+End` | Jump to start / end                                        |
-| Mouse wheel              | Scroll by 4 rows                                           |
+`Ctrl` below means `Cmd` on macOS unless a macOS-specific shortcut is shown.
+The editing and navigation keys apply while focus is in the byte grid.
+
+| Key | Action |
+| --- | --- |
+| `Ctrl+Z` | Undo using VS Code's native undo command |
+| `Ctrl+Y` (Windows/Linux) / `Cmd+Shift+Z` (macOS) | Redo using VS Code's native redo command |
+| `Ctrl+S` | Save using VS Code's native save command |
+| `Ctrl+Shift+S` | Save as using VS Code's native save-as command |
+| `Ctrl+C` | Copy the selection from the active hex or text pane |
+| `Ctrl+X` | Cut the selection from the active pane |
+| `Ctrl+V` | Insert clipboard bytes at the selection or caret |
+| `Ctrl+F` | Open Search and focus the search field |
+| `Ctrl+H` | Open Search and focus the replacement field |
+| `F3` / `Shift+F3` | Go to the next / previous search match |
+| `Ctrl+G` or `Ctrl+L` | Focus the offset field for a go-to-offset jump |
+| `Insert` | Toggle insert/overwrite editing mode |
+| `Tab` | Switch between the hex and text panes |
+| Hex digit / printable character | Edit the selected byte in the active pane |
+| `Backspace` | Delete the byte before the selection or caret |
+| `Delete` | Delete the selected byte or the byte at the caret |
+| Arrow keys | Move the byte selection by one byte or one row |
+| `Shift`+Arrow keys | Extend the selection by one byte or one row |
+| `Page Up` / `Page Down` | Move and scroll by one visible page |
+| `Shift+Page Up` / `Shift+Page Down` | Extend the selection by one visible page |
+| `Home` / `End` | Jump to the beginning / end of the file |
+
+Search fields also support the following keys:
+
+| Key | Action |
+| --- | --- |
+| `Enter` in the search field | Go to the next match |
+| `Shift+Enter` in the search field | Go to the previous match |
+| `Enter` in the replacement field | Replace the current match |
+| `Escape` | Close Search |
+
+When the checkpoint timeline slider has focus, Arrow keys move one checkpoint,
+`Page Up` / `Page Down` make larger moves, and `Home` / `End` select the first /
+last checkpoint. The file scrollbar uses the same navigation keys for line,
+page, and file-boundary scrolling. The mouse wheel scrolls the grid by four
+rows.
 
 ## Testing
 
